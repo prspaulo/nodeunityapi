@@ -4,8 +4,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const app = expresps();
 
-const port = "3000";
+//const port = "3000";
 //const port = process.env.port || 3000;
+
+app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParse.json());
 //codifica a url da api
@@ -259,6 +261,15 @@ app.delete("/player/:name", function(req, resp, next){
 
 });
 */
-app.listen(port, function(){
+//CÓDIGO ANTIGO
+/*app.listen(port, function(){
     console.log("Servidor está funfando na porta " + port);
-});
+});*/
+
+app.get("/", function(request, response){
+    var result = "App is running"
+    response.send(result); 
+}).listen(app.get("port"), function(){
+    console.log("App is running, server is listening on port ", app.get("port"));
+})
+
