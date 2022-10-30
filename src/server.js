@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const app = expresps();
 
-//const port = "3000";
-const port = process.env.port || 3000;
+const port = "3000";
+//const port = process.env.port || 3000;
 
 app.use(bodyParse.json());
 //codifica a url da api
