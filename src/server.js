@@ -1,4 +1,5 @@
 const expresps = require("express");
+const cors = require('cors');
 const bodyParse = require("body-parser");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
@@ -10,6 +11,7 @@ const app = expresps();
 app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParse.json());
+app.use(cors());
 //codifica a url da api
 app.use(bodyParse.urlencoded({extended: true}));
 
@@ -266,6 +268,7 @@ app.delete("/player/:name", function(req, resp, next){
     console.log("Servidor está funfando na porta " + port);
 });*/
 
+//CORRIGE ERRO (Heroku Node.js Error R10 (Boot timeout) - Web process failed to bind to $PORT within 60 seconds of)
 app.get("/", function(request, response){
     var result = "App is running"
     response.send(result); 
