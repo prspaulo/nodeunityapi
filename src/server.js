@@ -10,8 +10,12 @@ const app = expresps();
 
 app.set('port', (process.env.PORT || 5000));
 
+//Converte os dados para json
 app.use(bodyParse.json());
+
+//cors habilita requests do localhost
 app.use(cors());
+
 //codifica a url da api
 app.use(bodyParse.urlencoded({extended: true}));
 
